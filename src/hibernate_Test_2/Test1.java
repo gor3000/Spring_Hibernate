@@ -12,7 +12,7 @@ public class Test1 {
         SessionFactory factory = new Configuration().configure("Hibernate.cfg.xml").
                 addAnnotatedClass(Employee.class).addAnnotatedClass(Detail.class).buildSessionFactory();
         try {
-            Session session = factory.getCurrentSession();
+/*            Session session = factory.getCurrentSession();
             Employee employee = new Employee ("Graf Monte","Kristo","Shuris madiebeli",520202550);
             Detail detail = new Detail ("Berlin","+49176809090","Graf_Monte_Kristo@gmail.com");
 
@@ -21,7 +21,15 @@ public class Test1 {
 
             session.save(employee);
             session.getTransaction().commit();
+            System.out.println(" ##--  Done!!!   -## ");*/
+            Session session = factory.getCurrentSession();
+
+            session.beginTransaction();
+            Employee emp = session.get(Employee.class, 5);
+            System.out.println(emp.getEmpDetail());
+            session.getTransaction().commit();
             System.out.println(" ##--  Done!!!   -## ");
+
 
         }
         finally {
