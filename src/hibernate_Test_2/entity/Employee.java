@@ -1,5 +1,6 @@
 package hibernate_Test_2.entity;
 
+
 import javax.persistence.*;
 
 @Entity
@@ -25,7 +26,6 @@ public class Employee {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="details_id")
     private Detail empDetail;
-
 
     public Employee() {
     }
@@ -92,7 +92,7 @@ public class Employee {
                 ", name='" + name + '\'' +
                 ", username='" + username + '\'' +
                 ", department='" + department + '\'' +
-                ", salary='" + salary + '\'' +
+                ", salary=" + salary +
                 '}';
     }
 }

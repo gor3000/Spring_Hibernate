@@ -1,5 +1,6 @@
 package hibernate_Test_2.entity;
 
+
 import javax.persistence.*;
 
 @Entity
@@ -23,7 +24,18 @@ public class Detail {
     public Detail() {
     }
 
-    public Detail(String berlin, String s, String s1) {
+    public Detail(String city, String phoneNumber, String email) {
+        this.city = city;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getCity() {
