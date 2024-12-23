@@ -4,22 +4,32 @@ package hibernate_Test_2.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="details")
+@Table(name = "details")
 public class Detail {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
-    @Column(name="city")
+    @Column(name = "city")
     private String city;
 
 
-    @Column(name="phone_number")
-    private String  phoneNumber;
+    @Column(name = "phone_number")
+    private String phoneNumber;
 
-    @Column(name="email")
+    @Column(name = "email")
     private String email;
 
+    @OneToOne(mappedBy = "empDetail", cascade = CascadeType.ALL)
+    private Employee employee;
+
+    public Employee getEmployee(Employee employee) {
+        return this.employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
 
     public Detail() {
     }
